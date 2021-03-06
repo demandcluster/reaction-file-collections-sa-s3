@@ -78,9 +78,9 @@ export default class S3Store extends StorageAdapter {
     }
 
     debug("S3Store _getReadStream opts:", opts);
-
-    const object = await this.s3.getObject(opts).promise();
-
+    debug("FileRecord: ",fileRecord);
+    const object = await this.s3.getObject(opts).promise().catch((error)=>{debug("Ronny says Error ",error)});
+    
     debug("S3Store _getReadStream got object:", object);
 
     let totalTransferredData = 0;
