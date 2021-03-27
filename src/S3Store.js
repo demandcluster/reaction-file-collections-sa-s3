@@ -66,7 +66,6 @@ export default class S3Store extends StorageAdapter {
    */
   async _getReadStream(fileKey, { start: startPos, end: endPos } = {}) {
     debug("S3Store _getReadStream");
-
     const opts = {
       Bucket: process.env.AWS_S3_BUCKET,
       Key: fileKey._id
